@@ -9,4 +9,4 @@ Javier Tauroni Bernaldo de Quiros
 ## Objetivos del trabajo
 
 Lista de los objetivos que se persiguen con el trabajo propuesto.
-Crear un programa que pudiera ser usado realmente en un partido
+Crear un programa que pudiera ser usado realmente en un partido. Utilizar pulsadores para marcar diferentes acciones y LEDs para indicar que el programa las he ejecutado directamente.
