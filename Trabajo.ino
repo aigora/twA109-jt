@@ -15,7 +15,7 @@ void setup()
     pinMode(34,OUTPUT);
     pinMode(35,OUTPUT);
 }
-void 7seg1(int a1, int b1,int c1, int d1, int e1,int f1, int g1)
+void display (int a1, int b1,int c1, int d1, int e1,int f1, int g1,int a2, int b2,int c2, int d2, int e2,int f2,int g2)
 {
 digitalWrite(22,a1);
 digitalWrite(23,b1);
@@ -24,19 +24,65 @@ digitalWrite(25,d1);
 digitalWrite(26,e1);
 digitalWrite(27,f1);
 digitalWrite(28,g1);
+digitalWrite(29,a2);
+digitalWrite(30,b2);
+digitalWrite(31,c2);
+digitalWrite(32,d2);
+digitalWrite(33,e2);
+digitalWrite(34,f2);
+digitalWrite(35,g2);
 }
-void 7seg2(int a2, int b2,int c2, int d2, int e2,int f2,int g2)
+
+void loop() 
 {
-digitalWrite(29,a);
-digitalWrite(30,b);
-digitalWrite(31,c);
-digitalWrite(32,d);
-digitalWrite(33,e);
-digitalWrite(34,f);
-digitalWrite(35,g);
-}
+ display(1,1,0,1,1,0,1,0,1,1,0,0,1,1);//24
+ delay(1000);
+ display(1,1,0,1,1,0,1,1,1,1,1,0,0,1);//23
+ delay(1000);
+ display(1,1,0,1,1,0,1,1,1,0,1,1,0,1);//22
+ delay(1000);
+ display(1,1,0,1,1,0,1,0,1,1,0,0,0,0);//21
+ delay(1000);
+ display(1,1,0,1,1,0,1,1,1,1,1,1,1,0);//20
+ delay(1000);
+ display(0,1,1,0,0,0,0,1,1,1,0,0,1,1);//19
+ delay(1000);
+ display(0,1,1,0,0,0,0,1,1,1,1,1,1,1);//18
+ delay(1000);
+ display(0,1,1,0,0,0,0,1,1,1,0,0,0,0);//17
+ delay(1000);
+ display(0,1,1,0,0,0,0,1,0,1,1,1,1,1);//16
+ delay(1000);
+ display(0,1,1,0,0,0,0,1,0,1,1,0,1,1);//15
+ delay(1000);
+ display(0,1,1,0,0,0,0,0,1,1,0,0,1,1);//14
+ delay(1000);
+ display(0,1,1,0,0,0,0,1,1,1,1,0,0,1);//13
+ delay(1000);
+ display(0,1,1,0,0,0,0,1,1,0,1,1,0,1);//12
+ delay(1000);
+ display(0,1,1,0,0,0,0,0,1,1,0,0,0,0);//11
+ delay(1000);
+ display(0,1,1,0,0,0,0,1,1,1,1,1,1,0);//10
+ delay(1000);
+ display(1,1,1,1,1,1,0,1,1,1,0,0,1,1);//09
+ delay(1000);
+ display(1,1,1,1,1,1,0,1,1,1,1,1,1,1);//08
+ delay(1000);
+ display(1,1,1,1,1,1,0,1,1,1,0,0,0,0);//07
+ delay(1000);
+ display(1,1,1,1,1,1,0,1,0,1,1,1,1,1);//06
+ delay(1000);
+ display(1,1,1,1,1,1,0,1,0,1,1,0,1,1);//05
+ delay(1000);
+ display(1,1,1,1,1,1,0,0,1,1,0,0,1,1);//04
+ delay(1000);
+ display(1,1,1,1,1,1,0,1,1,1,1,0,0,1);//03
+ delay(1000);
+ display(1,1,1,1,1,1,0,1,1,0,1,1,0,1);//02
+ delay(1000);
+ display(1,1,1,1,1,1,0,0,1,1,0,0,0,0);//01
+ delay(1000);
+ display(1,1,1,1,1,1,0,1,1,1,1,1,1,0);//00                 
+} 
 
-void loop() {
-  // put your main code here, to run repeatedly:
-
-}
