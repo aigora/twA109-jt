@@ -1,88 +1,57 @@
-void setup() 
-  {
-    pinMode(22,OUTPUT);
-    pinMode(23,OUTPUT);
-    pinMode(24,OUTPUT);
-    pinMode(25,OUTPUT);
-    pinMode(26,OUTPUT);
-    pinMode(27,OUTPUT);
-    pinMode(28,OUTPUT);
-    pinMode(29,OUTPUT);
-    pinMode(30,OUTPUT);
-    pinMode(31,OUTPUT);
-    pinMode(32,OUTPUT);
-    pinMode(33,OUTPUT);
-    pinMode(34,OUTPUT);
-    pinMode(35,OUTPUT);
-}
-void display (int a1, int b1,int c1, int d1, int e1,int f1, int g1,int a2, int b2,int c2, int d2, int e2,int f2,int g2)
-{
-digitalWrite(22,a1);
-digitalWrite(23,b1);
-digitalWrite(24,c1);
-digitalWrite(25,d1);
-digitalWrite(26,e1);
-digitalWrite(27,f1);
-digitalWrite(28,g1);
-digitalWrite(29,a2);
-digitalWrite(30,b2);
-digitalWrite(31,c2);
-digitalWrite(32,d2);
-digitalWrite(33,e2);
-digitalWrite(34,f2);
-digitalWrite(35,g2);
-}
+//Hecho con placa Arduino Mega
+byte Digit[10][8] =
+   { 
+     { 1,1,1,1,1,1,0,0 },    // 0
+     { 0,1,1,0,0,0,0,0 },    // 1
+     { 1,1,0,1,1,0,1,0 },    // 2
+     { 1,1,1,1,0,0,1,0 },    // 3
+     { 0,1,1,0,0,1,1,0 },    // 4
+     { 1,0,1,1,0,1,1,0 },    // 5
+     { 1,0,1,1,1,1,1,0 },    // 6
+     { 1,1,1,0,0,0,0,0 },    // 7
+     { 1,1,1,1,1,1,1,0 },    // 8
+     { 1,1,1,0,0,1,1,0 }     // 9
+   };
 
-void loop() 
-{
- display(1,1,0,1,1,0,1,0,1,1,0,0,1,1);//24
- delay(1000);
- display(1,1,0,1,1,0,1,1,1,1,1,0,0,1);//23
- delay(1000);
- display(1,1,0,1,1,0,1,1,1,0,1,1,0,1);//22
- delay(1000);
- display(1,1,0,1,1,0,1,0,1,1,0,0,0,0);//21
- delay(1000);
- display(1,1,0,1,1,0,1,1,1,1,1,1,1,0);//20
- delay(1000);
- display(0,1,1,0,0,0,0,1,1,1,0,0,1,1);//19
- delay(1000);
- display(0,1,1,0,0,0,0,1,1,1,1,1,1,1);//18
- delay(1000);
- display(0,1,1,0,0,0,0,1,1,1,0,0,0,0);//17
- delay(1000);
- display(0,1,1,0,0,0,0,1,0,1,1,1,1,1);//16
- delay(1000);
- display(0,1,1,0,0,0,0,1,0,1,1,0,1,1);//15
- delay(1000);
- display(0,1,1,0,0,0,0,0,1,1,0,0,1,1);//14
- delay(1000);
- display(0,1,1,0,0,0,0,1,1,1,1,0,0,1);//13
- delay(1000);
- display(0,1,1,0,0,0,0,1,1,0,1,1,0,1);//12
- delay(1000);
- display(0,1,1,0,0,0,0,0,1,1,0,0,0,0);//11
- delay(1000);
- display(0,1,1,0,0,0,0,1,1,1,1,1,1,0);//10
- delay(1000);
- display(1,1,1,1,1,1,0,1,1,1,0,0,1,1);//09
- delay(1000);
- display(1,1,1,1,1,1,0,1,1,1,1,1,1,1);//08
- delay(1000);
- display(1,1,1,1,1,1,0,1,1,1,0,0,0,0);//07
- delay(1000);
- display(1,1,1,1,1,1,0,1,0,1,1,1,1,1);//06
- delay(1000);
- display(1,1,1,1,1,1,0,1,0,1,1,0,1,1);//05
- delay(1000);
- display(1,1,1,1,1,1,0,0,1,1,0,0,1,1);//04
- delay(1000);
- display(1,1,1,1,1,1,0,1,1,1,1,0,0,1);//03
- delay(1000);
- display(1,1,1,1,1,1,0,1,1,0,1,1,0,1);//02
- delay(1000);
- display(1,1,1,1,1,1,0,0,1,1,0,0,0,0);//01
- delay(1000);
- display(1,1,1,1,1,1,0,1,1,1,1,1,1,0);//00                 
-} 
+void setup()
+    {   
+      pinMode(13,INPUT);     
+      for (int i= 22; i<33; i++)
+                     pinMode(i, OUTPUT);
+    }
+ void Display(int pos, int N)
+  {  
+       digitalWrite(29 ,LOW);        
+       digitalWrite(30,LOW);
+       digitalWrite(31,LOW);
+       digitalWrite(32,LOW);
+ 
+      for (int i= 0 ; i<8 ; i++)    
+            digitalWrite(i+22 , Digit[N][i]) ;
 
+      digitalWrite(pos + 29, HIGH);     
+  }
+  void CalculaDigitos( int Num)
+   {
+      int Digit0 = Num %10 ;
+      int Digit1 = (Num % 100) / 10 ;
+      int Digit2 = (Num % 1000) / 100 ;
+      int Digit3 = (Num  / 1000)  ;
+     
+      
+      Display(3 , Digit3);
+      Display(2 , Digit2);
+      Display(1 , Digit1);
+      Display(0 , Digit0);
+      if(Digit0==0&&Digit1==0&&Digit2==0&&Digit3==0)//Parar cuando llegue a 0
+      {
+        while(1)
+        {
+        }
+      }
+   }
+   void loop()
+   {
+
+   CalculaDigitos( 2400-millis() / 10);//Cambiar el 24 para iniciar desde otro valor, por ejemplo para contar desde 14 sería 14000 
+   }
