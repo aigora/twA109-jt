@@ -327,6 +327,7 @@ void mostrar(jugador*eq, int n)
 	printf("Porcentaje de tiros libres:%f%c\n", eq[n].p1,37);
 	printf("Asistencias:%d\n", eq[n].asistencias);
 	printf("Rebotes:%d\n", eq[n].rebotes);
+	printf("Faltas:%d\n", eq[n].faltas);
 	printf("Tapones:%d\n", eq[n].tapones);
 	printf("Robos:%d\n", eq[n].robos);
 	printf("Perdidas:%d\n", eq[n].perdidas);
